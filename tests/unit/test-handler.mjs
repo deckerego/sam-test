@@ -1,6 +1,6 @@
 "use strict";
 
-import { lambdaHandler } from "../../app.mjs";
+import { lambdaHandler } from "../../src/app.mjs";
 import { expect } from "chai";
 import { createRequire } from 'module';
 
