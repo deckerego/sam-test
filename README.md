@@ -16,7 +16,10 @@ Ipsum sed
 
 ## Deploying to AWS
 
-Ipsum Sed
+To deploy this test app to your remote AWS stack:
+
+1. `sam build`
+1. `sam deploy --guided`
 
 
 ## License

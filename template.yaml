@@ -3,7 +3,7 @@ Transform: AWS::Serverless-2016-10-31
 Description: >
   sam-test
 
-  Sample SAM Template for sam-test
+  A test application to demo AWS Serverless Application Model
 Resources:
   PostsTable:
     Type: AWS::Serverless::SimpleTable
@@ -11,7 +11,7 @@ Resources:
   Greeter:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
-      CodeUri: greeter/
+      CodeUri: .
       Handler: app.lambdaHandler
       Runtime: nodejs22.x
       Architectures:
@@ -25,7 +25,7 @@ Resources:
         Type: API_KEY
       ApiKeys:
         MyApiKey:
-          Description: my api key
+          Description: The API Key used for private endpoints
       DataSources:
         DynamoDb:
           Posts:
