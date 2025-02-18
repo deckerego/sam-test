@@ -2,7 +2,7 @@
   "name": "sam-test",
   "version": "0.0.1",
   "description": "A test application to demo AWS Serverless Application Model",
-  "main": "src/app.js",
+  "main": "src/app.mjs",
   "repository": "https://github.com/deckerego/sam-test",
   "author": "deckerego",
   "license": "MIT",

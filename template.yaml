@@ -9,7 +9,7 @@ Resources:
     Type: AWS::Serverless::SimpleTable
 
   Greeter:
-    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Type: AWS::Serverless::Function
     Properties:
       CodeUri: .
       Handler: app.lambdaHandler
@@ -97,7 +97,6 @@ Outputs:
     Description: API Key for HelloWorldGraphQLApi
     Value: !GetAtt HelloWorldGraphQLApiMyApiKey.ApiKey
 
-# # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
   Function:
     Tracing: Active

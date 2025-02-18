@@ -13,9 +13,26 @@ and using SAM only for CI/CD while avoiding proprietary bindings. This should de
 
 Unit tests can be run with `npm test`
 
-You can invoke Lambda enpoints within a local Docker container with `sam local invoke`
+You can invoke Lambda enpoints within a local Docker container with `sam local invoke`,
+and local HTTP server can be launched to field requests via `sam local start-api`.
 
-Similarly you can run a local HTTP server with `sam local start-api`
+
+### Error with Docker on MacOS (at least)
+
+Recent builds of Docker may not point to the correct socket
+(see [SAM CLI Issue #4329](https://github.com/aws/aws-sam-cli/issues/4329#issuecomment-1289588827)).
+You can override this by manually finding the socket that is _not_ currently used for `DOCKER_HOST` configs:
+```
+sam-test % docker context ls                                                           
+NAME              DESCRIPTION                               DOCKER ENDPOINT                                   ERROR
+default           Current DOCKER_HOST based configuration   unix:///var/run/docker.sock                       
+desktop-linux *   Docker Desktop                            unix:///Users/username/.docker/run/docker.sock   
+```
+
+...then override `DOCKER_HOST` to use the _other_ socket instead:
+```
+sam-test % DOCKER_HOST=unix:///Users/username/.docker/run/docker.sock sam local invoke
+```
 
 
 ## Deploying to AWS
